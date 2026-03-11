@@ -7,13 +7,22 @@ export default function Weather() {
 	const [error, setError] = useState(null)
 
 	useEffect(() => {
-		fetch('/api/v1/forecast.json?key=e0c4fcc2ca0449578ae35836241312&q=Tashkent')
-			.then(res => res.json())
+		// Netlify Function orqali backend'ga so'rov yuboramiz
+		fetch('/.netlify/functions/weather?city=Tashkent')
+			.then(response => {
+				// Agar status 2xx bo'lmasa, xato deb hisoblaymiz
+				if (!response.ok) {
+					throw new Error(`Serverdan xato status qaytdi: ${response.status}`)
+				}
+				// Faqat muvaffaqiyatli bo'lsa JSON'ga o'tamiz
+				return response.json()
+			})
 			.then(data => {
-				console.log(data)
+				// Kelgan ma'lumotni state'ga saqlaymiz
 				setWeatherData(data)
 			})
 			.catch(err => {
+				// Xatolikni konsolga va foydalanuvchiga ko'rsatamiz
 				console.error('Error fetching data:', err)
 				setError("Ma'lumotni olishda xatolik yuz berdi")
 			})
