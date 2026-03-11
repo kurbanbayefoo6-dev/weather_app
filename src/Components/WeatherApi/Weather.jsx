@@ -7,7 +7,7 @@ export default function Weather() {
 	const [error, setError] = useState(null)
 
 	useEffect(() => {
-		fetch('/.netlify/functions/weather?city=Tashkent')
+		fetch('https://api.weatherapi.com/v1/forecast.json?q=Tashkent&key=e0c4fcc2ca0449578ae35836241312')
 			.then(response => {
 				if (!response.ok) {
 					throw new Error(`Serverdan xato status qaytdi: ${response.status}`)
