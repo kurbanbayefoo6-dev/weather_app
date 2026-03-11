@@ -1,34 +1,62 @@
 /* Kichik soatlik kartochka */
 .hour-card {
 	/* Kartaning o'lchami sodda va bir xil bo'lsin */
-	min-width: 92px;
-	background: white;
-	border: 1px solid #e7eef7;
-	border-radius: 14px;
-	padding: 10px 10px 12px;
+	min-width: 104px;
+	scroll-snap-align: start;
+
+	/* Premium glass card */
+	background: rgba(255, 255, 255, 0.14);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border: 1px solid rgba(255, 255, 255, 0.22);
+	border-radius: 18px;
+	padding: 12px 12px 14px;
 	text-align: center;
-	box-shadow: 0 10px 24px rgba(16, 24, 40, 0.06);
+
+	box-shadow:
+		0 18px 40px rgba(0, 0, 0, 0.28),
+		inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+	/* Hover effekti */
+	transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.hour-card:hover {
+	transform: translateY(-4px);
+	border-color: rgba(255, 255, 255, 0.34);
+	box-shadow:
+		0 26px 60px rgba(0, 0, 0, 0.34),
+		inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 /* Vaqt */
 .hour-time {
 	margin: 0;
 	font-size: 12px;
-	color: #64748b;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	color: rgba(255, 255, 255, 0.78);
 }
 
 /* Icon */
 .hour-icon {
 	margin-top: 6px;
-	width: 42px;
-	height: 42px;
+	width: 44px;
+	height: 44px;
 	object-fit: contain;
+
+	/* Icon atrofiga yumshoq fon */
+	background: rgba(255, 255, 255, 0.10);
+	border-radius: 14px;
+	padding: 6px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 /* Harorat */
 .hour-temperature {
 	margin: 6px 0 0;
 	font-size: 16px;
-	font-weight: 700;
-	color: #0f172a;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	color: rgba(255, 255, 255, 0.92);
 }
